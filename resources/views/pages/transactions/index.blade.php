@@ -1,12 +1,36 @@
 @extends('layouts.default')
 
+@section('breadcrumbs')
+    <div class="breadcrumbs-inner"> 
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Daftar Transaksi Masuk</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8"> 
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="#">Transaksi</a></li> 
+                            <li class="active">Daftar Transaksi Masuk</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
 @section('content')
     
     <div class="orders">
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-header">
                         <h4 class="box-title">Daftar Transaksi Masuk</h4>
                     </div>
                     @if (session('status'))
@@ -14,16 +38,17 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <div class="card-body--"> 
-                        <div class="table-stats order-table ov-h">
-                            <table class="table">
+                    <div class="card-body"> 
+                        {{-- <div class="table-stats order-table ov-h"> --}}
+                            <table id="table_id" class="table table-striped table-bordered" style="width:100%">
+                            {{-- <table class="table" id="table_id"> --}}
                                 <thead>
                                     <tr>
                                         <th>No</th>
                                         <th>Nama</th>
                                         <th>Email</th>
                                         <th>Nomor</th>
-                                        <th>Total Transaksi</th>
+                                        <th>Total</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -92,7 +117,7 @@
                                     @endforelse
                                 </tbody>
                             </table>
-                        </div>
+                        {{-- </div> --}}
                     </div>
                 </div>
             </div>
@@ -104,3 +129,14 @@
         </div>
     </div>
 @endsection
+{{-- @push('after-style')
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+@endpush --}}
+@push('after-script')
+    {{-- <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script> --}}
+    <script>
+        jQuery(document).ready(function(){
+            jQuery('#table_id').DataTable();
+        })
+    </script>
+@endpush

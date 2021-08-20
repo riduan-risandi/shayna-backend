@@ -8,7 +8,6 @@ use App\Models\Models\ProductGallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-
 class ProductGalleryController extends Controller
 {
 
