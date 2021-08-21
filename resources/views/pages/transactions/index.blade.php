@@ -38,10 +38,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <div class="card-body"> 
-                        {{-- <div class="table-stats order-table ov-h"> --}}
-                            <table id="table_id" class="table table-striped table-bordered" style="width:100%">
-                            {{-- <table class="table" id="table_id"> --}}
+                    <div class="card-body">  
+                        <div class="table-stats  ov-h">
+                            <table class="table datatables  order-table" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -57,12 +56,11 @@
                                     {{-- @forelse ($items as $item) --}}
                                     @Forelse ($items as $key => $item)
                                         <tr>
-                                            {{-- <td>{{$loop->iteration}}</td> --}}
-                                            <td scope="row">{{ $items->firstItem() + $key }} </td>
+                                            <td >{{$loop->iteration}}</td>
+                                            {{-- <td scope="row">{{ $items->firstItem() + $key }} </td> --}}
                                             <td>{{$item->name}}</td>
                                             <td>{{$item->email}}</td>
-                                            <td>{{$item->number}}</td>
-                                            {{-- number_format($amount, 2) --}}
+                                            <td>{{$item->number}}</td> 
                                             <td>{{number_format($item->transaction_total,2)}}</td>
                                             <td>
                                                 @if($item->transaction_status    == 'PENDING')
@@ -87,7 +85,7 @@
                                                         <i class="fa fa-times"></i> 
                                                     </a>
                                                 @endif
-                                                 
+                                                    
                                                 <a href="#mymodal" 
                                                     data-remote="{{ route('transactions.show',$item->id) }}" 
                                                     data-toggle="modal" 
@@ -102,7 +100,7 @@
                                                 <form action="{{ route('transactions.destroy',$item->id) }}" method="POST" class="d-inline"> 
                                                     @method('delete')
                                                     @csrf 
-                                                      <button class="btn btn-danger btn-sm">
+                                                        <button class="btn btn-danger btn-sm">
                                                         <i class="fa fa-trash"></i> 
                                                     </button>
                                                 </form> 
@@ -117,26 +115,15 @@
                                     @endforelse
                                 </tbody>
                             </table>
-                        {{-- </div> --}}
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-12" style="display: flex; justify-content: flex-end">
                     {{$items->links()}}
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
-@endsection
-{{-- @push('after-style')
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
-@endpush --}}
-@push('after-script')
-    {{-- <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script> --}}
-    <script>
-        jQuery(document).ready(function(){
-            jQuery('#table_id').DataTable();
-        })
-    </script>
-@endpush
+@endsection 

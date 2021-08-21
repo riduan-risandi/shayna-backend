@@ -8,6 +8,7 @@ use App\Models\Models\ProductGallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 class ProductGalleryController extends Controller
 {
 
@@ -31,8 +32,8 @@ class ProductGalleryController extends Controller
         // $items = ProductGallery::with('product')->get();
         $items = ProductGallery::with('product')
                                 ->orderBy('id','DESC')
-                                ->paginate(10);
-                                 // ->get()  
+                                // ->paginate(10);
+                                 ->get();  
                                 // ->toArray();
         
         return view('pages.product-galleries.index')->with([

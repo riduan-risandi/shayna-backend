@@ -31,12 +31,11 @@ class ProductController extends Controller
      */
     public function index()
     { 
+        //QUERY BUILDER
         // $data = DB::table('products')
         //                 ->leftJoin('item_categories', 'products.item_category_id', '=', 'item_categories.id')
         //                 ->select('products.*', 'item_categories.name as  item_category_name')
-        //                 ->paginate(10);
-
-        
+        //                 ->paginate(10); 
 
         // $users = Product::select("id", "name") 
         //                 ->with('category') 
@@ -44,8 +43,11 @@ class ProductController extends Controller
         //                 // ->paginate(10) ;
         //                 ->toArray(); 
 
-        $items = Product::with('category') 
-                            ->paginate(10) ; 
+        // $items = Product::with('category') 
+        //                     ->paginate(10) ; 
+
+        //Eloquent
+        $items = Product::with('category')->get(); 
         // dd($items);    
         return view('pages.products.index', compact('items'));
         // return view('pages.products.index')->with([

@@ -30,7 +30,7 @@
         <div class="row">
             <div class="col-12"> 
                 <div class="card">
-                    <div class="card-body">  
+                    <div class="card-header">  
                         <a class="btn btn-primary btn-sm" href="{{ url('/products/create') }}" role="button"><i class="fa fa-plus"></i> Tambah</a>
                     </div>  
                     @if (session('status'))
@@ -38,71 +38,70 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <div class="table-stats order-table ov-h">
-                        <table class="table" id="table_id" >
-                        {{-- <table id="bootstrap-data-table" class="table table-striped table-bordered"> --}}
-                            <thead>
-                                <tr>
-                                    <th scope="col">No</th>
-                                    <th scope="col">Nama</th>
-                                    <th scope="col">Kategori</th>
-                                    {{-- <th scope="col">Tipe</th> --}}
-                                    <th scope="col">Harga</th>
-                                    <th scope="col">Jumlah</th>
-                                    <th scope="col">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody> 
-                                
-                                @Forelse ($items as $key => $item)
-                                    <tr> 
-                                        <td scope="row">{{ $items->firstItem() + $key }} </td>
-
-                                        <td>{{strtolower($item->name)}}</td>
-                                        <td>
-                                            @if (!empty($item->category->name)) 
-                                            {{ $item->category->name}} 
-                                            @else  
-                                            @endif
-                                        </td> 
-                                        {{-- <td>{{$item->type}}</td>  --}}
-                                        <td>{{number_format($item->price,2)}}</td>
-                                        <td>{{$item->quantity}}</td>
-                                        <td>
-                                            <a href="{{ route('products.gallery',$item->id) }}" class="btn btn-info btn-sm"> 
-                                                <i class="fa fa-picture-o"></i> 
-                                            </a> 
-                                            <a href="{{ url('products/edit',$item->id) }}" class="btn btn-primary btn-sm">
-                                                <i class="fa fa-pencil"></i> 
-                                            </a>
-                                            <form action="/products/{{$item->id}}" method="POST" class="d-inline">
-                                                @method('delete')
-                                                @csrf 
-                                                    <button class="btn btn-danger btn-sm">
-                                                    <i class="fa fa-trash"></i> 
-                                                </button>
-                                            </form> 
-                                        </td>
-                                    </tr>
-                                @empty
+                    <div class="card-body">  
+                        <div class="table-stats  ov-h">
+                            <table class="table datatables  order-table" style="width:100%">
+                                <thead>
                                     <tr>
-                                        <td colspan="6" class="text-center p-5">
-                                            Data Tidak Tersedia
-                                        </td>
+                                        <th scope="col">No</th>
+                                        <th scope="col">Nama</th>
+                                        <th scope="col">Kategori</th> 
+                                        <th scope="col">Harga</th>
+                                        <th scope="col">Jumlah</th>
+                                        <th scope="col">Action</th>
                                     </tr>
-                                @endforelse
-                            </tbody>
-                        </table> 
+                                </thead>
+                                <tbody> 
+                                    
+                                    @Forelse ($items as $key => $item)
+                                        <tr>  
+                                            <td>{{$loop->iteration}}</td> 
+                                            {{-- <td scope="row">{{ $items->firstItem() + $key }} </td> --}} 
+                                            <td>{{($item->name)}}</td>
+                                            <td>
+                                                @if (!empty($item->category->name)) 
+                                                {{ $item->category->name}} 
+                                                @else  
+                                                @endif
+                                            </td>  
+                                            <td>{{number_format($item->price,2)}}</td>
+                                            <td>{{$item->quantity}}</td>
+                                            <td>
+                                                <a href="{{ route('products.gallery',$item->id) }}" class="btn btn-info btn-sm"> 
+                                                    <i class="fa fa-picture-o"></i> 
+                                                </a> 
+                                                <a href="{{ url('products/edit',$item->id) }}" class="btn btn-primary btn-sm">
+                                                    <i class="fa fa-pencil"></i> 
+                                                </a>
+                                                <form action="/products/{{$item->id}}" method="POST" class="d-inline">
+                                                    @method('delete')
+                                                    @csrf 
+                                                        <button class="btn btn-danger btn-sm">
+                                                        <i class="fa fa-trash"></i> 
+                                                    </button>
+                                                </form> 
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="6" class="text-center p-5">
+                                                Data Tidak Tersedia
+                                            </td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table> 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-12" style="display: flex; justify-content: flex-end">
                 
                 {{$items->links()}}
             </div>
-        </div>
+        </div> --}}
     </div>
 @endsection
- 
+  

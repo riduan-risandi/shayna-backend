@@ -40,45 +40,47 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <div class="table-stats order-table ov-h">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Nama barang</th>
-                                    <th>Foto</th>
-                                    <th>Default</th> 
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody> 
-                                @Forelse ($items as $key => $item)
+                    <div class="card-body">
+                        <div class="table-stats  ov-h">
+                            <table class="table datatables  order-table" style="width:100%">
+                                <thead>
                                     <tr>
-                                        <td>{{$loop->iteration}}</td> 
-                                        <td>{{$item->product->name}}</td>
-                                        <td>
-                                            <img class="item-images" src="{{ url($item->photo)}}" /> 
-                                        </td>
-                                        <td>{{$item->is_default ? 'Ya' :  'Tidak'}}</td> 
-                                        <td>    
-                                            <form action="{{ route('product-galleries.destroy',$item->id) }}" method="POST" class="d-inline"> 
-                                                @method('delete')
-                                                @csrf
-                                                <button class="btn btn-danger btn-sm">
-                                                    <i class="fa fa-trash"></i> 
-                                                </button>
-                                            </form>
-                                        </td>
+                                        <th>No</th>
+                                        <th>Nama barang</th>
+                                        <th>Foto</th>
+                                        <th>Default</th> 
+                                        <th>Action</th>
                                     </tr>
-                                @empty
-                                    <tr>
-                                        <td colspan="6" class="text-center p-5">
-                                            Data Tidak Tersedia
-                                        </td>
-                                    </tr>
-                                @endforelse
-                            </tbody>
-                        </table> 
+                                </thead>
+                                <tbody> 
+                                    @Forelse ($items as $key => $item)
+                                        <tr>
+                                            <td>{{$loop->iteration}}</td> 
+                                            <td>{{$item->product->name}}</td>
+                                            <td>
+                                                <img style=" max-width: 45px;" class="item-images" src="{{ url($item->photo)}}" /> 
+                                            </td>
+                                            <td>{{$item->is_default ? 'Ya' :  'Tidak'}}</td> 
+                                            <td>    
+                                                <form action="{{ route('product-galleries.destroy',$item->id) }}" method="POST" class="d-inline"> 
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button class="btn btn-danger btn-sm">
+                                                        <i class="fa fa-trash"></i> 
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="6" class="text-center p-5">
+                                                Data Tidak Tersedia
+                                            </td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table> 
+                        </div>
                     </div>
                 </div>
             </div>

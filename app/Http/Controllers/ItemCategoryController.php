@@ -29,10 +29,8 @@ class ItemCategoryController extends Controller
     public function index()
     {
         $data = ItemCategory::select("id", "name") 
-                                ->withCount('Product') 
-                                // ->get() 
-                                ->paginate(10) ;
-                                // ->toArray();
+                                ->withCount('Product')  
+                                ->get() ; 
         // dd($data);                 
         return view('pages.item_categories.index')->with([
             'data' => $data, 

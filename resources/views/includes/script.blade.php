@@ -25,7 +25,8 @@
 <script src="{{asset('assets/js/init/fullcalendar-init.js') }}"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/29.0.0/classic/ckeditor.js"></script>
 
-<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+{{-- <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script> --}}
+<script type="text/javascript" src="{{asset('DataTables/datatables.min.js') }}"></script>
 
 <script>
     jQuery(document).ready(function() {
@@ -63,6 +64,12 @@
  
 </script>
  
+
+<script>
+    jQuery(document).ready(function(){
+        jQuery('.datatables').DataTable();
+    })
+</script>
 
 <div class="modal" id="mymodal" tabindex="-1" role="dialog" >
     <div class="modal-dialog modal-lg" role="document">

@@ -40,8 +40,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <div class="table-stats order-table ov-h">
-                        <table class="table">
+                    <div class="card-body">
+                        <table id="table_id" class="table datatables  row-border cell-border row-border order-table" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>No</th>
