@@ -34,7 +34,7 @@
                 @csrf
                 <div class="row form-group">
                     <div class="col col-md-3">
-                        <label for="disabled-input" class=" form-control-label">Nama Barang</label>
+                        <label  class=" form-control-label">Nama Barang</label>
                     </div>
                     <div class="col-12 col-md-9">
                         <select name="product_id" class="input-sm form-control-sm form-control @error('product_id') is-invalid @enderror">
@@ -48,7 +48,7 @@
                  
                 <div class="row form-group">
                     <div class="col col-md-3">
-                        <label for="disabled-input" class=" form-control-label">Foto Barang</label>
+                        <label  class=" form-control-label">Foto Barang</label>
                     </div>
                     <div class="col-12 col-md-9">
                             <input type="file" name="photo" value="{{old('photo')}}" required accept="image/*" class="input-sm form-control-sm form-control  @error('photo') is-invalid @enderror"> 
@@ -62,21 +62,23 @@
 
                 <div class="row form-group">
                     <div class="col col-md-3">
-                        <label for="disabled-input" class=" form-control-label">Jadikan Default</label>
+                        <label  class=" form-control-label">Jadikan Default</label>
                     </div>
                     <div class="col-12 col-md-9">
                         <div class="form-check-inline form-check">
                             <label for="inline-radio1" class="form-check-label ">
-                                <input type="radio" name="is_default" value="1" class="form-check-input">Ya
+                                <input type="radio" name="is_default" value="1" class="form-check-input @error('is_default') is-invalid @enderror">Ya
                             </label>
                             &nbsp;
                             <label for="inline-radio2" class="form-check-label ">
                                 <input type="radio" name="is_default"
-                                    value="0" class="form-check-input">Tidak
+                                    value="0" class="form-check-input @error('is_default') is-invalid @enderror">Tidak
                             </label> 
                         </div>
-                         
-                        @error('is_default') <div class="text-muted">{{$message}}</div>  @enderror
+                        @error('is_default')
+                            <div class="text-muted">{{$message}}</div> 
+                        @enderror
+                        {{-- @error('is_default') <div class="text-muted">{{$message}}</div>  @enderror --}}
                     </div>
                 </div> 
                 <div class="row form-group"> 

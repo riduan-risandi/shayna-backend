@@ -17,12 +17,7 @@ class TransactionController extends Controller
     {
         $this->middleware('auth');
     }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function index()
     {
         $items = Transaction::all();
@@ -32,34 +27,17 @@ class TransactionController extends Controller
             'items' => $items
         ]);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function create()
     {
         //
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function store(Request $request)
     {
         //
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function show($id)
     {
         $item = Transaction::with('details.product')->findOrFail($id);
@@ -82,30 +60,23 @@ class TransactionController extends Controller
             'item'=>$item
         ]);
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function update(Request $request, $id)
     {
+        $validated = $request->validate([
+            'name'                  =>'required|max:255',
+            'email'                 =>'required|email|max:255',
+            'number'                =>'required|max:255',
+            'address'               =>'required',
+        ]);
+        
         $data = $request->all(); 
 
         $item = Transaction::findOrFail($id); 
         $item->update($data);
-        return redirect()->route('transactions.index')->with('status','Data Transaksi Berhasil diubah!');
-        // return redirect('/products')->with('status','Data Product Berhasil diubah!');
+        return redirect()->route('transactions.index')->with('status','Data Transaksi Berhasil diubah!'); 
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function destroy($id)
     {
         $item = Transaction::findOrFail($id); 

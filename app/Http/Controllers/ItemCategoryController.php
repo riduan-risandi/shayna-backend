@@ -53,10 +53,9 @@ class ItemCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ItemCategoryRequest $request)
     {
-        $created_by = Auth::user()->id ; 
-        // $name = Auth::user()->name ; 
+        $created_by = Auth::user()->id ;  
         $data = $request->all(); 
         $data['created_by'] = $created_by;
  
@@ -96,7 +95,7 @@ class ItemCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ItemCategoryRequest $request, $id)
     {
         $updated_by = Auth::user()->id ; 
         $data = $request->all(); 

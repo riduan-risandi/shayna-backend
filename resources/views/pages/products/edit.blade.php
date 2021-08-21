@@ -41,7 +41,7 @@
                 @csrf
                 <div class="row form-group">
                     <div class="col col-md-3">
-                        <label for="disabled-input" class=" form-control-label">Nama Barang</label>
+                        <label  class=" form-control-label">Nama Barang</label>
                     </div>
                     <div class="col-12 col-md-9">
                         <input type="text"  name="name" value="{{old('name') ? old('name') : $item->name}}" class="input-sm form-control-sm form-control @error('name') is-invalid @enderror" > 
@@ -52,7 +52,7 @@
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3">
-                        <label for="disabled-input" class=" form-control-label">Kategori</label>
+                        <label  class=" form-control-label">Kategori</label>
                     </div>
                     <div class="col-12 col-md-9">
                         <select name="item_category_id" class="input-sm form-control-sm form-control @error('item_category_id') is-invalid @enderror">
@@ -76,7 +76,7 @@
                 </div> 
                 <div class="row form-group">
                     <div class="col col-md-3">
-                        <label for="disabled-input" class=" form-control-label">Tipe Barang</label>
+                        <label  class=" form-control-label">Tipe Barang</label>
                     </div>
                     <div class="col-12 col-md-9">
                         <input type="text"  name="type" value="{{old('type') ? old('type') : $item->type}}" class="input-sm form-control-sm form-control @error('type') is-invalid @enderror" > 
@@ -88,7 +88,7 @@
 
                 <div class="row form-group">
                     <div class="col col-md-3">
-                        <label for="disabled-input" class=" form-control-label">Deskripsi</label>
+                        <label  class=" form-control-label">Deskripsi</label>
                     </div>
                     <div class="col-12 col-md-9">
                         <textarea name="description" id="ckeditor" class="input-sm form-control-sm form-control  @error('type') is-invalid @enderror">{{old('description') ? old('description') : $item->description }}</textarea>
@@ -99,7 +99,7 @@
                 </div> 
                 <div class="row form-group">
                     <div class="col col-md-3">
-                        <label for="disabled-input" class=" form-control-label">Harga</label>
+                        <label  class=" form-control-label">Harga</label>
                     </div>
                     <div class="col-12 col-md-9">
                         <div class="input-group">
@@ -113,7 +113,7 @@
                 </div>  
                 <div class="row form-group">
                     <div class="col col-md-3">
-                        <label for="disabled-input" class=" form-control-label">Jumlah</label>
+                        <label  class=" form-control-label">Jumlah</label>
                     </div>
                     <div class="col-12 col-md-9">
                         <input type="number"  name="quantity" value="{{old('quantity') ? old('quantity') : $item->quantity}}" class="input-sm form-control-sm form-control @error('quantity') is-invalid @enderror" > 

@@ -45,6 +45,13 @@ Route::get('/transactions/{id}/set-status', 'App\Http\Controllers\TransactionCon
         ->name('transactions.status');
 Route::resource('transactions', '\App\Http\Controllers\TransactionController');
 
+// Pelanggan 
+Route::get('/customers', 'App\Http\Controllers\CustomerController@index');
+Route::get('/customers/index', [App\Http\Controllers\CustomerController::class, 'index']);
+Route::get('/customers/create', 'App\Http\Controllers\CustomerController@create');
+Route::post('/customers/store', 'App\Http\Controllers\CustomerController@store');
+// Route::post('/customers/store', [App\Http\Controllers\CustomerController::class, 'store']);
+
 // ItemCategory
 Route::get('/item_categories', 'App\Http\Controllers\ItemCategoryController@index');
 Route::get('/item_categories/index', [App\Http\Controllers\ItemCategoryController::class, 'index']);

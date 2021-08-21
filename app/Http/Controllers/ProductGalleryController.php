@@ -61,7 +61,7 @@ class ProductGalleryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductGalleryRequest $request)
     // public function store(ProductGalleryRequest $request)
     { 
         $id_login = Auth::user()->id ; 
@@ -71,12 +71,8 @@ class ProductGalleryController extends Controller
         );
         $data['created_by'] = $id_login; 
 
-        // dd( $data['photo']);
-
-
-        ProductGallery::create($data);
-        // return redirect()->route('product-galleries');
-        // return redirect()->route('product-galleries.index');
+        // dd( $id_login);  
+        ProductGallery::create($data); 
         return redirect()->route('product-galleries.index')->with('status','Foto Barang Berhasil ditambahkan!'); 
     }
 

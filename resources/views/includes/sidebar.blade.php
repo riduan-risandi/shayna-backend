@@ -12,23 +12,17 @@
                     <a href="{{ url('/item_categories') }}"> <i class="menu-icon fa fa-tags"></i>Kategori Barang</a>
                 </li>
                 <li class="">
-                    <a href="{{ url('/products') }}"> <i class="menu-icon fa fa-apple"></i>Barang</a>
+                    <a href="{{ url('/products') }}"> <i class="menu-icon ti ti-package"></i>Barang</a>
                 </li>
                 <li class="">
                     <a href="{{ route('product-galleries.index') }}"> <i class="menu-icon fa fa-picture-o"></i>Foto Barang</a>
+                </li> 
+                <li class="menu-title">Pesanan</li> 
+                <li class="">
+                    <a href="{{ route('transactions.index') }}"> <i class="menu-icon fa fa-shopping-cart"></i>Pesanan</a>
                 </li>
-
-                {{-- <li class="menu-title">Foto Barang</li> 
                 <li class="">
-                    <a href="{{ route('product-galleries.index') }}"> <i class="menu-icon fa fa-list"></i>Lihat Foto Barang</a>
-                </li>
-                <li class="">
-                    <a href="{{ url('/product-galleries/create') }}"> <i class="menu-icon fa fa-plus"></i>Tambah Foto Barang</a>
-                </li> --}}
-
-                <li class="menu-title">Transaksi</li><!-- /.menu-title -->
-                <li class="">
-                    <a href="{{ route('transactions.index') }}"> <i class="menu-icon fa fa-list"></i>Lihat Transaksi</a>
+                    <a href="{{ url('/customers') }}"> <i class="menu-icon fa fa-users"></i>Pelanggan</a> 
                 </li>
             </ul>
         </div><!-- /.navbar-collapse -->
