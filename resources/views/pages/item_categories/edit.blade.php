@@ -50,7 +50,7 @@
                 </div> 
                 <div class="row form-group"> 
                     <div class="col-12">
-                        <a class="btn btn-secondary btn-sm" href="{{ url('/products') }}" role="button"><i class="fa fa-chevron-left"></i> Kembali</a>
+                        <a class="btn btn-secondary btn-sm" href="{{ url('/item_categories') }}" role="button"><i class="fa fa-chevron-left"></i> Kembali</a>
                         &nbsp;
                         <button class="btn btn-primary btn-sm" type="submit"><span class="fa fa-save"></span> Simpan</button>
                     </div>

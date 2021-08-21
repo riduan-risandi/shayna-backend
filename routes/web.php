@@ -49,8 +49,9 @@ Route::resource('transactions', '\App\Http\Controllers\TransactionController');
 Route::get('/customers', 'App\Http\Controllers\CustomerController@index');
 Route::get('/customers/index', [App\Http\Controllers\CustomerController::class, 'index']);
 Route::get('/customers/create', 'App\Http\Controllers\CustomerController@create');
-Route::post('/customers/store', 'App\Http\Controllers\CustomerController@store');
-// Route::post('/customers/store', [App\Http\Controllers\CustomerController::class, 'store']);
+Route::post('/customers/store', 'App\Http\Controllers\CustomerController@store'); 
+Route::post('/customers/store', 'App\Http\Controllers\CustomerController@store'); 
+Route::get('/customers/edit/{customers}', 'App\Http\Controllers\CustomerController@edit');  
 
 // ItemCategory
 Route::get('/item_categories', 'App\Http\Controllers\ItemCategoryController@index');

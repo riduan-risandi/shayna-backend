@@ -6,7 +6,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Pesanan</h1>
+                        <h1>Pelanggan</h1>
                     </div>
                 </div>
             </div>
@@ -59,15 +59,8 @@
                                             <td>{{$val->email}}</td>
                                             <td> 
                                                 <a href="{{ url('customers/edit',$val->id) }}" class="btn btn-primary btn-sm">
-                                                    <i class="fa fa-pencil"></i> 
-                                                </a>
-                                                <form action="/customers/{{$val->id}}" method="POST" class="d-inline">
-                                                    @method('delete')
-                                                    @csrf 
-                                                        <button class="btn btn-danger btn-sm">
-                                                        <i class="fa fa-trash"></i> 
-                                                    </button>
-                                                </form> 
+                                                    <i class="fa fa-book"></i> 
+                                                </a> 
                                             </td>
                                         </tr>
                                     @empty
