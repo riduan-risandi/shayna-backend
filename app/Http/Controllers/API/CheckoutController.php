@@ -11,8 +11,8 @@ use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
 {
-    public function checkout(CheckoutRequest $request)
-    // public function checkout(Request $request)
+    // public function checkout(CheckoutRequest $request)
+    public function checkout(Request $request)
     {
 
         $data = $request->except('transaction_detail'); //artinya except = kecuali
