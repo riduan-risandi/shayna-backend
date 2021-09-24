@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\API\Customers;
 
-use App\Http\Controllers\Controller;  
+use App\Http\Controllers\Controller; 
+// use App\Models\Customer;
 use App\Models\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -12,7 +13,7 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Validator;
 
-class CustomerController extends Controller
+class ApiController extends Controller
 {
     public function register(Request $request)
     {
