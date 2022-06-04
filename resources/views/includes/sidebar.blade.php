@@ -7,6 +7,10 @@
                     <a href="{{ url('/') }}"><i class
                         ="menu-icon fa fa-laptop"></i>Dashboard </a>
                 </li>
+                <li class="menu-title">Admin</li><!-- /.menu-title -->
+                <li class="">
+                    <a href="{{ url('/users') }}"> <i class="menu-icon fa fa-user"></i>Users</a>
+                </li>
                 <li class="menu-title">Barang</li><!-- /.menu-title -->
                 <li class="">
                     <a href="{{ url('/item_categories') }}"> <i class="menu-icon fa fa-tags"></i>Kategori Barang</a>
