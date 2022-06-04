@@ -45,6 +45,7 @@ Route::get('/transactions/{id}/set-status', 'App\Http\Controllers\TransactionCon
         ->name('transactions.status');
 Route::resource('transactions', '\App\Http\Controllers\TransactionController');
 
+
 // User 
 Route::get('/users', 'App\Http\Controllers\UserController@index');
 Route::get('/users/index', [App\Http\Controllers\UserController::class, 'index']);

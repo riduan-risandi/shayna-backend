@@ -24,6 +24,7 @@
     </div>
 @endsection
 
+
 @section('content')
     
     <div class="orders">
