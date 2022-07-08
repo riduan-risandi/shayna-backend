@@ -14,7 +14,7 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li><a href="#">Users</a></li> 
+                            <li><a href="#">Admin</a></li> 
                             <li class="active">Users</li>
                         </ol>
                     </div>
@@ -32,7 +32,7 @@
             <div class="col-12"> 
                 <div class="card">
                     <div class="card-header">  
-                        <a class="btn btn-primary btn-sm" href="{{ url('/customers/create') }}" role="button"><i class="fa fa-plus"></i> Tambah</a>
+                        <a class="btn btn-primary btn-sm" href="{{ url('/users/create') }}" role="button"><i class="fa fa-plus"></i> Tambah</a>
                     </div>  
                     @if (session('status'))
                         <div class="alert alert-success">

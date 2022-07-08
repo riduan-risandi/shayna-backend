@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
  
 use App\Models\User;
+use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request; 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +18,7 @@ class UserController extends Controller
    
     public function index()
     {    
-        $data = User::orderBy('id','DESC')->get();     
+        $data = User::orderBy('name','ASC')->get();     
 
         return view('pages.users.index', compact('data')); 
     }
@@ -34,9 +35,9 @@ class UserController extends Controller
         $data = $request->all();  
         $data['password'] = Hash::make($data['password']);
         $data['created_by'] = $created_by;
- 
+        // dd($data);
         User::create($data); 
-        return redirect('/users/index')->with('status','Pelanggan Berhasil ditambahkan!'); 
+        return redirect('/users/index')->with('status','User Berhasil ditambahkan!'); 
     }
  
     public function show($id)
@@ -46,10 +47,10 @@ class UserController extends Controller
    
     public function edit($id)
     {
-        // $data = User::findOrFail($id);
-        // return view('pages.users.edit')->with([
-        //     'data' =>$data,
-        // ]);
+        $data = User::findOrFail($id);
+        return view('pages.users.edit')->with([
+            'data' =>$data,
+        ]);
     }
  
     public function update(Request $request, $id)

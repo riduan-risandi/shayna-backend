@@ -47,10 +47,10 @@ class CustomerController extends Controller
    
     public function edit($id)
     {
-        // $data = Customer::findOrFail($id);
-        // return view('pages.customers.edit')->with([
-        //     'data' =>$data,
-        // ]);
+        $data = Customer::findOrFail($id);
+        return view('pages.customers.edit')->with([
+            'data' =>$data,
+        ]);
     }
  
     public function update(Request $request, $id)

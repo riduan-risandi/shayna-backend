@@ -5,7 +5,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Pesanan</h1>
+                        <h1>Users</h1>
                     </div>
                 </div>
             </div>
@@ -13,8 +13,8 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li><a href="#">Pesanan</a></li> 
-                            <li><a href="#">Pelanggan</a></li> 
+                            <li><a href="#">Admin</a></li> 
+                            <li><a href="#">Users</a></li> 
                             <li class="active">Tambah</li>
                         </ol>
                     </div>
@@ -29,10 +29,10 @@
     <div class="card">
         <div class="card-header"> 
             {{-- <h4 class="box-title"> Tambah Kategori Barang </h4> --}}
-            <strong> Tambah Pelanggan</strong>
+            <strong> Tambah Users</strong>
         </div>
         <div class="card-body card -block"> 
-            <form method="post" action="/customers/store"> 
+            <form method="post" action="/users/store">  
                 @csrf 
                 <div class="row form-group">
                     <div class="col col-md-3">
@@ -55,19 +55,7 @@
                             <div class="text-muted">{{$message}}</div> 
                         @enderror 
                     </div>
-                </div> 
-                 
-                <div class="row form-group">
-                    <div class="col col-md-3">
-                        <label  class=" form-control-label">No. HP</label>
-                    </div>
-                    <div class="col-12 col-md-9"> 
-                        <input id="number" placeholder="No. Handphone" type="text" class="form-control @error('number') is-invalid @enderror" name="number" value="{{ old('number') }}" required autocomplete="number">
-                        @error('number')
-                            <div class="text-muted">{{$message}}</div> 
-                        @enderror 
-                    </div>
-                </div> 
+                </div>  
                 
                 <div class="row form-group">
                     <div class="col col-md-3">
@@ -91,9 +79,10 @@
                 </div> 
                 <div class="row form-group"> 
                     <div class="col-12">
-                        <a class="btn btn-secondary btn-sm" href="{{ url('/customers') }}" role="button"><i class="fa fa-chevron-left"></i> Kembali</a>
+                        <a class="btn btn-secondary btn-sm" href="{{ url('/users') }}" role="button"><i class="fa fa-chevron-left"></i> Kembali</a>
                         &nbsp;
-                        <button class="btn btn-primary btn-sm" type="submit"><span class="fa fa-save"></span> Simpan</button>
+                        {{-- <button class="btn btn-primary btn-sm" type="submit"><span class="fa fa-save"></span> Simpan</button> --}}
+                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">   {{ __('Simpan') }}</button> 
                     </div>
                 </div>   
             </form>

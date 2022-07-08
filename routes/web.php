@@ -48,7 +48,11 @@ Route::resource('transactions', '\App\Http\Controllers\TransactionController');
 
 // User 
 Route::get('/users', 'App\Http\Controllers\UserController@index');
-Route::get('/users/index', [App\Http\Controllers\UserController::class, 'index']);
+Route::get('/users/index', [App\Http\Controllers\UserController::class, 'index']); 
+Route::get('/users/create', 'App\Http\Controllers\UserController@create');
+Route::post('/users/store', 'App\Http\Controllers\UserController@store');  
+Route::get('/users/edit/{users}', 'App\Http\Controllers\UserController@edit');  
+
 // Pelanggan 
 Route::get('/customers', 'App\Http\Controllers\CustomerController@index');
 Route::get('/customers/index', [App\Http\Controllers\CustomerController::class, 'index']);
