@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\Customers\ApiController;
 use App\Http\Controllers\API\CustomerController;
+use App\Http\Controllers\API\OngkirController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,12 @@ Route::get('/transactions/{id}', 'App\Http\Controllers\API\TransactionController
 // Route::post('/register', 'App\Http\Controllers\API\RegisterController@register');
 // Route::post('/customers', 'App\Http\Controllers\API\\CustomerController@get');
 
+Route::get('/provinces', 'App\Http\Controllers\API\OngkirController@provinces');
+Route::get('/couriers', 'App\Http\Controllers\API\OngkirController@couriers');
+Route::get('/cities/{id}', 'App\Http\Controllers\API\OngkirController@getCities');
+Route::get('/cek_ongkir', 'App\Http\Controllers\API\OngkirController@cekOngkir');
+// Route::post('/cek_ongkir', 'App\Http\Controllers\API\OngkirController@cekOngkir');  
+// Route::post('cek_ongkir', [OngkirController::class, 'cekOngkir']);
 
 
 // Route::post('/register', 'App\Http\Controllers\API\Customers\RegisterController@register');
