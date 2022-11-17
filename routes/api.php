@@ -39,8 +39,10 @@ Route::get('/transactions/{id}', 'App\Http\Controllers\API\TransactionController
 
 Route::get('/provinces', 'App\Http\Controllers\API\OngkirController@provinces');
 Route::get('/couriers', 'App\Http\Controllers\API\OngkirController@couriers');
-Route::get('/cities/{id}', 'App\Http\Controllers\API\OngkirController@getCities');
-Route::get('/cek_ongkir', 'App\Http\Controllers\API\OngkirController@cekOngkir');
+// Route::get('/cities/{id}', 'App\Http\Controllers\API\OngkirController@getCities');
+Route::get('/cities', 'App\Http\Controllers\API\OngkirController@getCities');
+Route::get('/cek_ongkir', 'App\Http\Controllers\API\OngkirController@cekOngkir2');
+// Route::get('/cek_ongkir', 'App\Http\Controllers\API\OngkirController@cekOngkir');
 // Route::post('/cek_ongkir', 'App\Http\Controllers\API\OngkirController@cekOngkir');  
 // Route::post('cek_ongkir', [OngkirController::class, 'cekOngkir']);
 

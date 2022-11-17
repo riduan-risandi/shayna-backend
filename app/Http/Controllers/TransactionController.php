@@ -20,7 +20,8 @@ class TransactionController extends Controller
  
     public function index()
     {
-        $items = Transaction::all();
+        // $items = Transaction::all();
+        $items = Transaction::orderBy('created_at', 'desc')->get();
         // $items = Transaction::paginate(10);
 
         return view('pages.transactions.index')->with([
