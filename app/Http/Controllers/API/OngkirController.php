@@ -104,7 +104,8 @@ class OngkirController extends Controller
                 'service' => $val["service"],
                 'description' => $val["description"], 
                 'cost' => $val["cost"][0]["value"], 
-                'fullname' => $val["service"].' - Rp.'.number_format($val["cost"][0]["value"]), 
+                'fullname' => $val["service"].' ('.$val["cost"][0]["etd"].' days)'.' - Rp.'.number_format($val["cost"][0]["value"]), 
+                // 'fullname' => $val["service"].' - Rp.'.number_format($val["cost"][0]["value"]), 
             ];
  
         }
